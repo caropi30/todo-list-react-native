@@ -5,10 +5,10 @@ import labels from '../constants/labels';
 const { BTN_EDITAR_TAREA, BTN_ELIMINAR_TAREA } = labels;
 
 const Task = (props) => {
-    const {task, deleteTask} = props;
+    const {task, deleteTask, key} = props;
 
     return (
-        <View style={[style.container, style.mainContainer]}>
+        <View style={[style.container, style.mainContainer]} key={key}>
             <Text style={style.mainContainerTxt}>{task}</Text>
             <View style={style.container}>
                 {/* <Pressable style={[style.btn, style.btnEditar]}>

@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { SafeAreaView, StyleSheet, Text, View, StatusBar, FlatList } from "react-native";
+import React from "react";
+import { SafeAreaView, StyleSheet, StatusBar } from "react-native";
 import  SearchBar from "./src/components/SearchBar";
-import Task from "./src/components/Task";
 import TasksList from "./src/components/TasksList";
 import useTaks from "./src/hooks/useTask";
 
 
 export default function App() {
- const {task, setTask, tasksList, setTasksList, handleTextChange, handleAddTask, handleDeleteTask} = useTaks();
+ const {task, tasksList, handleTextChange, handleAddTask} = useTaks();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -15,7 +14,9 @@ export default function App() {
           backgroundColor='#ff0054'
       />
       <SearchBar addTask={handleAddTask} onChangeText={handleTextChange} searchValue={task}/>
-      <TasksList data={tasksList} task={task} deleteTask={handleDeleteTask}/>
+      <TasksList 
+        data={tasksList} 
+      />
     </SafeAreaView>
   );
 }
