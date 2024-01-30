@@ -4,15 +4,14 @@ import Task from "./Task";
 import ModalConfirmation from "./ModalConfirmation";
 import useTaks from "../hooks/useTask";
 
-const TasksList = ({data}) => {
-    const { handleDeleteTask, isVisible, handleOpenModalConfirmation, handleModalConfirmation } = useTaks();
+const TasksList = ({ data, onPressYes, onPressNo, deleteTask, isVisible }) => {
 
     return (
-       <>
-            <FlatList data={data} keyExtractor={task => task.id} renderItem={({item}) => <Task task={item.title} key={item.id} deleteTask={() => handleOpenModalConfirmation(item.id)} />}/>
-            <ModalConfirmation isVisible={isVisible} onPressYes={handleDeleteTask} onPressNo={handleModalConfirmation}/>
-       </>
+        <>
+            <FlatList data={data} keyExtractor={task => task.id} renderItem={({ item }) => <Task task={item.title} id={item.id} deleteTask={() => deleteTask(item.id)} />} />
+            <ModalConfirmation isVisible={isVisible} onPressYes={onPressYes} onPressNo={onPressNo} />
+        </>
     )
 }
-    
+
 export default TasksList;

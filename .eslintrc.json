@@ -6,8 +6,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended", 
-        "prettier",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -16,6 +16,5 @@
     "plugins": [
         "react"
     ],
-    "rules": {
-    }
+    "rules": {}
 }

@@ -1,21 +1,21 @@
 import React from "react";
-import { View, Text, Pressable, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
 import labels from '../constants/labels';
 
 const { BTN_EDITAR_TAREA, BTN_ELIMINAR_TAREA } = labels;
 
 const Task = (props) => {
-    const {task, deleteTask, key} = props;
+    const { task, deleteTask, id } = props;
 
     return (
-        <View style={[style.container, style.mainContainer]} key={key}>
+        <View style={[style.container, style.mainContainer]} key={id}>
             <Text style={style.mainContainerTxt}>{task}</Text>
             <View style={style.container}>
                 {/* <Pressable style={[style.btn, style.btnEditar]}>
                     <Text style={style.txt}>{BTN_EDITAR_TAREA}</Text> 
                 </Pressable> */}
                 <TouchableOpacity style={[style.btn, style.btnEliminar]} onPress={deleteTask}>
-                    <Text style={style.txt}>{BTN_ELIMINAR_TAREA}</Text> 
+                    <Text style={style.txt}>{BTN_ELIMINAR_TAREA}</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -41,7 +41,7 @@ const style = StyleSheet.create({
         fontSize: 16,
         fontWeight: '500'
     },
-    secondaryContainer:{
+    secondaryContainer: {
         width: '30%'
     },
     txt: {
@@ -57,7 +57,7 @@ const style = StyleSheet.create({
         backgroundColor: '#e63946',
         marginLeft: 5
     },
-    btnEditar:{
+    btnEditar: {
         backgroundColor: '#ff5400'
     }
 })

@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 const useModalConfirmation = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const [selectedId, setSelectedId] = useState('');
+	const [isVisible, setIsVisible] = useState(false)
+	const [selectedId, setSelectedId] = useState('')
 
-    const handleModalConfirmation = () => {
-        setIsVisible(!isVisible);
-    };
+	const handleModalConfirmation = () => {
+		setIsVisible(!isVisible)
+	}
 
-    const handleOpenModalConfirmation = (id) => {
-        handleModalConfirmation()
-        setSelectedId(id)
-    };
+	const handleOpenModalConfirmation = (id) => {
+		setSelectedId(id)
+		handleModalConfirmation()
+	}
 
-    return {
-        isVisible,
-        handleModalConfirmation,
-        handleOpenModalConfirmation, 
-        selectedId
-    }
+	return {
+		isVisible,
+		handleModalConfirmation,
+		handleOpenModalConfirmation,
+		selectedId,
+	}
 }
 
 export default useModalConfirmation
